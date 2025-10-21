@@ -19,6 +19,7 @@ export const add = mutation({
     if (!orgId) {
       throw new Error("No Organization");
     }
+    throw new Error("Testing error handling in sentry");
     const userId = ctx.db.insert("users", { name: "jason" });
     return userId;
   },
