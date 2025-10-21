@@ -15,6 +15,10 @@ export const add = mutation({
     if (!identity) {
       throw new Error("Not autheniticated");
     }
+    const orgId = identity?.orgId as string;
+    if (!orgId) {
+      throw new Error("No Organization");
+    }
     const userId = ctx.db.insert("users", { name: "jason" });
     return userId;
   },
