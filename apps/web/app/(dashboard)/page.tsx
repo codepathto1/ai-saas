@@ -2,7 +2,7 @@
 import { Authenticated, Unauthenticated, useMutation, useQuery } from "convex/react";
 import { api } from "@workspace/backend/_generated/api";
 import { Button } from "@workspace/ui/components/button";
-import { SignInButton, UserButton } from "@clerk/nextjs";
+import { OrganizationSwitcher, SignInButton, UserButton } from "@clerk/nextjs";
 export default function Page() {
   const users = useQuery(api.users.getMany);
   const addUser = useMutation(api.users.add);
@@ -22,6 +22,8 @@ export default function Page() {
       <Authenticated>
         <div className="flex  flex-col gap-y-6 items-center justify-center my-10">
           <h1 className="text-2xl font-bold">apps/Web</h1>
+          <UserButton />
+          <OrganizationSwitcher hidePersonal={true} />
           <div className="flex gap-y-6">
             <div className="flex flex-col gap-6">
               {users.map((user) => (
