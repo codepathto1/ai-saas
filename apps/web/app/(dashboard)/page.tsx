@@ -25,13 +25,7 @@ export default function Page() {
           <UserButton />
           <OrganizationSwitcher hidePersonal={true} />
           <div className="flex gap-y-6">
-            <div className="flex flex-col gap-6">
-              {users.map((user) => (
-                <p className="flex flex-col" key={users._id}>
-                  {user.name}
-                </p>
-              ))}
-            </div>
+            <div className="flex flex-col gap-6"></div>
           </div>
           <Button
             onClick={() => {
@@ -40,7 +34,6 @@ export default function Page() {
             Add
           </Button>
         </div>
-        <UserButton />
       </Authenticated>
     </>
   );
